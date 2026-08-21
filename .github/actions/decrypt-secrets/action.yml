@@ -3,7 +3,7 @@ description: 'Decrypts a zip and masks the JSON contents as env vars'
 inputs:
   zip_password:
     description: 'Password for the Zip'
-    required: true
+    required: false
   zip_path:
     description: 'Path to the encrypted zip'
     required: false
