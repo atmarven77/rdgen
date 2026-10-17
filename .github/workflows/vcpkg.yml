@@ -8,9 +8,6 @@ on:
         required: false
         default: 'Manual dependency update'
 
-env:
-  VCPKG_COMMIT_ID: '120deac3062162151622ca4860575a33844ba10b'
-
 jobs:
   build-and-export:
     runs-on: windows-latest
@@ -43,13 +40,18 @@ jobs:
           cp -r rustdesk_repo/res/vcpkg ./res/
         shell: bash
 
+      - name: Print vcpkg.json
+        shell: bash
+        run: |
+          cat vcpkg.json
+
       - name: Setup vcpkg
         uses: lukka/run-vcpkg@v11
         with:
           vcpkgDirectory: ${{ github.workspace }}/vcpkg
-          vcpkgGitCommitId: ${{ env.VCPKG_COMMIT_ID }}
+          vcpkgGitCommitId: 9c8d6f7a0d6b7c4e5f8a1b2c3d4e5f6a7b8c9d0e
           doNotCache: false
-                
+                          
       - name: Install vcpkg dependencies
         env:
           VCPKG_DEFAULT_HOST_TRIPLET: ${{ matrix.job.vcpkg-triplet }}
