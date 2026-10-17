@@ -43,7 +43,7 @@ jobs:
           cp -r rustdesk_repo/res/vcpkg ./res/
         shell: bash
 
-        name: Setup vcpkg
+      - name: Setup vcpkg
         uses: lukka/run-vcpkg@v11
         with:
           vcpkgDirectory: ${{ github.workspace }}/vcpkg
