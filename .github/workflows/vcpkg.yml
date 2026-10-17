@@ -40,16 +40,11 @@ jobs:
           cp -r rustdesk_repo/res/vcpkg ./res/
         shell: bash
 
-      - name: Print vcpkg.json
-        shell: bash
-        run: |
-          cat vcpkg.json
-
       - name: Setup vcpkg
         uses: lukka/run-vcpkg@v11
         with:
           vcpkgDirectory: ${{ github.workspace }}/vcpkg
-          vcpkgGitCommitId: 9c8d6f7a0d6b7c4e5f8a1b2c3d4e5f6a7b8c9d0e
+          vcpkgGitCommitId: 9e593bb18ea69cc5095e012465dcd675a822ed0d
           doNotCache: false
                           
       - name: Install vcpkg dependencies
